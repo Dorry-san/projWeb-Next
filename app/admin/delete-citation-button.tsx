@@ -18,6 +18,7 @@ export function DeleteCitationButton(props: { id: number }) {
 
   return (
     <Button
+      size="sm"
       onClick={() => {
         if (isConfirm) {
           onDelete();
