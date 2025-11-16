@@ -21,3 +21,15 @@ export async function createCitationAction(citation: {
   }
   redirect("/admin");
 }
+
+export async function deleteCitationAction(id: number) {
+  await prisma.citation.delete({
+    where: {
+      id,
+    },
+  });
+
+  return {
+    message: "Deleted !",
+  };
+}

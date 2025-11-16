@@ -7,6 +7,7 @@ import {
 } from "@/src/components/ui/card";
 import Link from "next/link";
 import { prisma } from "@/src/lib/prisma";
+import { DeleteCitationButton } from "./delete-citation-button";
 
 export default async function Page() {
   const citations = await prisma.citation.findMany({
@@ -21,9 +22,12 @@ export default async function Page() {
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {citations.map((citations) => (
-          <Card className="p-4" key={citations.id}>
-            <p>{citations.text}</p>
-            <p>-- {citations.author}</p>
+          <Card className="p-4 flex items-start gap-4" key={citations.id}>
+            <div className="flex flex-col gap-2 flex-1">
+              <p>{citations.text}</p>
+              <p>-- {citations.author}</p>
+            </div>
+            <DeleteCitationButton id={citations.id} />
           </Card>
         ))}
         <Link
