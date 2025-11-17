@@ -18,7 +18,7 @@ export default async function Page() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>URL : /admin</CardTitle>
+        <CardTitle>Citation</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {citations.map((citations) => (
@@ -30,21 +30,24 @@ export default async function Page() {
             <div className="flex flex-col gap-2">
               <DeleteCitationButton id={citations.id} />
               <Link
-                href={`/admin/citation/${citations.id}`}
-                className={buttonVariants({ size: "sm", variant: "outline" })}
+                href={`/citation/${citations.id}`}
+                className={buttonVariants({
+                  size: "sm",
+                  variant: "outline",
+                })}
               >
                 Edite citation
               </Link>
             </div>
           </Card>
         ))}
-        <Link
-          href="/admin/citation/new"
-          className={buttonVariants({ size: "lg", variant: "outline" })}
-        >
-          Create citation
-        </Link>
       </CardContent>
+      <Link
+        href="/citation/new"
+        className={buttonVariants({ size: "lg", variant: "outline" })}
+      >
+        Create citation
+      </Link>
     </Card>
   );
 }

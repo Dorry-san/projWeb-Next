@@ -1,5 +1,10 @@
-import { Button, buttonVariants } from "@/src/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
+import { buttonVariants } from "@/src/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/src/components/ui/card";
 import Link from "next/link";
 //import Image from "next/image";
 
@@ -12,8 +17,8 @@ export default function Home() {
         </CardHeader>
         <CardContent>
           <Link
-            href="/admin"
-            className={buttonVariants({ size: "lg", variant:"outline" })}
+            href="#"
+            className={buttonVariants({ size: "lg", variant: "outline" })}
           >
             /admin
           </Link>

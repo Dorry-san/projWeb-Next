@@ -2,7 +2,7 @@
 
 import { Button } from "@/src/components/ui/button";
 import { useState } from "react";
-import { deleteCitationAction } from "./citation/citations.action";
+import { deleteCitationAction } from "./citations.action";
 import { useRouter } from "next/navigation";
 
 export function DeleteCitationButton(props: { id: number }) {
@@ -28,7 +28,7 @@ export function DeleteCitationButton(props: { id: number }) {
       }}
       variant={isConfirm ? "destructive" : "outline"}
     >
-      X
+      Supprimer
     </Button>
   );
 }

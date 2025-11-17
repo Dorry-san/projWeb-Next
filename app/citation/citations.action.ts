@@ -19,7 +19,7 @@ export async function createCitationAction(citation: {
       error: "Error while creating the citation.",
     };
   }
-  redirect("/admin");
+  redirect("/citation");
 }
 
 export async function updateCitationAction(
@@ -44,7 +44,7 @@ export async function updateCitationAction(
       error: "Error while creating the citation.",
     };
   }
-  redirect("/admin");
+  redirect("/citation");
 }
 
 export async function deleteCitationAction(id: number) {
