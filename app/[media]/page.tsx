@@ -10,6 +10,7 @@ import Link from "next/link";
 import { DeleteMediaButton } from "./delete-mediai-button";
 import { MediaType } from "@/generated/prisma";
 import Err from "@/src/components/badMedia";
+import Image from "next/image";
 
 export default async function Page({ params }: { params: { media: string } }) {
   const media = (await params).media;
@@ -46,8 +47,15 @@ export default async function Page({ params }: { params: { media: string } }) {
           <Card className="p-4 flex items-start gap-4" key={theMedia.id}>
             <div className="flex flex-col gap-2 flex-1">
               <p>{theMedia.title}</p>
-              <p>-- {theMedia.description}</p>
-              <p>{theMedia.url}</p>
+              {theMedia.type == "photo" && (
+                <Image
+                  src={theMedia.url}
+                  width={500}
+                  height={500}
+                  alt="img media"
+                />
+              )}
+              <p>{theMedia.description}</p>
             </div>
             <div className="flex flex-col gap-2">
               <DeleteMediaButton id={theMedia.id} />
