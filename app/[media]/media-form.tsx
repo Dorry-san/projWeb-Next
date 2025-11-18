@@ -23,6 +23,8 @@ export function MediaForm({
 }) {
   const onSubmit = async (FormData: FormData) => {
     let error: null | string = null;
+    const file = FormData.get("media") as File;
+
     if (media) {
       const json = await updateMediaAction(
         media.id,
@@ -39,7 +41,7 @@ export function MediaForm({
           type: mediaStr as MediaType,
           title: String(FormData.get("title")),
           description: String(FormData.get("description")),
-          url: String(FormData.get("url")),
+          url: String(FormData.get("url")) + file.name,
         },
         mediaStr,
       );
@@ -65,16 +67,31 @@ export function MediaForm({
         >
           <Label>
             Titre
-            <Input defaultValue={media?.title} name="title" />
+            <Input
+              defaultValue={media?.title}
+              name="title"
+              placeholder="Titre"
+              required
+            />
           </Label>
           <Label>
             Description
-            <Input defaultValue={media?.description ?? ""} name="description" />
+            <Input
+              defaultValue={media?.description ?? ""}
+              name="description"
+              placeholder="Optionnel"
+            />
           </Label>
           {!media && (
             <Label>
-              Url
-              <Input name="url" />
+              Media
+              <Input type="file" name="media" required />
+            </Label>
+          )}
+          {!media && (
+            <Label>
+              Chemin du media
+              <Input name="url" placeholder="/home/user/Images/" required />
             </Label>
           )}
           <SubmitButton />
