@@ -18,6 +18,7 @@ export function DeleteCitationButton(props: { id: number }) {
 
   return (
     <Button
+      className="basis-1/2"
       size="sm"
       onClick={() => {
         if (isConfirm) {
@@ -28,7 +29,7 @@ export function DeleteCitationButton(props: { id: number }) {
       }}
       variant={isConfirm ? "destructive" : "outline"}
     >
-      Supprimer
+      {isConfirm ? "Vraiment ?" : "Supprimer"}
     </Button>
   );
 }

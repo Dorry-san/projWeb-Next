@@ -10,9 +10,11 @@ export default function Header() {
           <h1 className="text-5xl font-bold text-center">Archivea</h1>
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="relative flex justify-center items-center">
         <Nav />
-        <Theme />
+        <div className="absolute right-4">
+          <Theme />
+        </div>
       </CardContent>
     </Card>
   );
