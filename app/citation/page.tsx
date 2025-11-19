@@ -41,13 +41,13 @@ export default async function Page() {
             </div>
           </Card>
         ))}
+        <Link
+          href="/citation/new"
+          className={buttonVariants({ size: "lg", variant: "outline" })}
+        >
+          Create citation
+        </Link>
       </CardContent>
-      <Link
-        href="/citation/new"
-        className={buttonVariants({ size: "lg", variant: "outline" })}
-      >
-        Create citation
-      </Link>
     </Card>
   );
 }

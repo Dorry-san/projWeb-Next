@@ -41,7 +41,7 @@ export default async function Page({ params }: { params: { media: string } }) {
       <CardHeader>
         <CardTitle>{mediaUpperAt0}</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
+      <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {medias.map((theMedia) => (
           <Card className="p-4 flex items-start gap-4" key={theMedia.id}>
             <div className="flex flex-col gap-2 flex-1">
