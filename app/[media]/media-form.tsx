@@ -36,12 +36,15 @@ export function MediaForm({
       );
       error = json.error;
     } else {
+      let fullUrl = String(FormData.get("url"));
+      let cleanUrl = fullUrl.replace(/\/$/, '');
+
       const json = await createMediaAction(
         {
           type: mediaStr as MediaType,
           title: String(FormData.get("title")),
           description: String(FormData.get("description")),
-          url: String(FormData.get("url")) + file.name,
+          url: cleanUrl + "/" + file.name,
         },
         mediaStr,
       );
@@ -106,7 +109,7 @@ const SubmitButton = () => {
 
   return (
     <Button disabled={pending} type="submit">
-      {pending ? "Loading..." : "Subbit"}
+      {pending ? "Loading..." : "Submit"}
     </Button>
   );
 };
