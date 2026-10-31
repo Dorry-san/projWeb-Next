@@ -4,7 +4,8 @@ export default function Foot() {
   return (
     <Card>
       <CardContent className="text-center">
-        <p>©Dorry-san contact: doryan.jovanovic@ensiie.eu Projet Next</p>
+        <p>Doryan JOVANOVIC - contact: doryan.jovanovic@ensiie.eu</p>
+        <p>Lucas PIVET - contact: lucas.pivet@ensiie.eu</p>
       </CardContent>
     </Card>
   );
