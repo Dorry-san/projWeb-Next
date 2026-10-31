@@ -39,7 +39,7 @@ export function CitationForm(props: { citation?: citation }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{props.citation ? "Update" : "Create"} citation</CardTitle>
+        <CardTitle>{props.citation ? "Modifier" : "Créer"} citation</CardTitle>
       </CardHeader>
       <CardContent>
         <form
@@ -53,7 +53,7 @@ export function CitationForm(props: { citation?: citation }) {
             <Input defaultValue={props.citation?.text} name="text" />
           </Label>
           <Label>
-            Author
+            Auteur
             <Input defaultValue={props.citation?.author} name="author" />
           </Label>
           <SubmitButton />

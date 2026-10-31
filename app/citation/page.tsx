@@ -35,7 +35,7 @@ export default async function Page() {
                   variant: "outline",
                 })} basis-1/2`}
               >
-                Edite citation
+                Modifier citation
               </Link>
               <DeleteCitationButton id={citations.id} />
             </div>
@@ -47,7 +47,7 @@ export default async function Page() {
           href="/citation/new"
           className={buttonVariants({ size: "lg", variant: "outline" })}
         >
-          Create citation
+          Créer une nouvelle citation
         </Link>
       </CardContent>
     </Card>

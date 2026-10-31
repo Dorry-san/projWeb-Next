@@ -6,7 +6,7 @@ export default function Loading(){
     return(
         <Card>
             <CardHeader>
-                <CardTitle>Error</CardTitle>
+                <CardTitle>Oups, une erreur est survenue</CardTitle>
             </CardHeader>
         </Card>
     )

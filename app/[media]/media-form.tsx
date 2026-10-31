@@ -59,7 +59,7 @@ export function MediaForm({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{media ? "Update" : "Create"} media</CardTitle>
+        <CardTitle>{media ? "Modifier" : "Créer"} media</CardTitle>
       </CardHeader>
       <CardContent>
         <form

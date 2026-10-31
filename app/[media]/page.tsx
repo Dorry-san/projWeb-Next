@@ -22,9 +22,9 @@ export default async function Page({ params }: { params: { media: string } }) {
   let mediaCreate = "";
 
   if (media == "gif") {
-    mediaCreate = "Crée un nouveau " + media;
+    mediaCreate = "Créer un nouveau " + media;
   } else {
-    mediaCreate = "Crée une nouvelle " + media;
+    mediaCreate = "Créer une nouvelle " + media;
   }
 
   const medias = await prisma.media.findMany({

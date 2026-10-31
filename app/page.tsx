@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <Card>
       <CardHeader className="text-4xl font-bold text-center">
-        <CardTitle>Acceuil</CardTitle>
+        <CardTitle>Accueil</CardTitle>
       </CardHeader>
       <CardContent>
         <Card>
@@ -40,12 +40,12 @@ export default function Home() {
                 sans dépendre du cloud.
               </li>
               <li>
-                Explorer vos fichiers facilement, grâce à une interface
+                Explorer vos fichiers facilement grâce à une interface
                 intuitive et agréable à utiliser.
               </li>
               <li>
-                Prévisualiser vos contenus avant de les ouvrir, que ce soit des
-                images, vidéos ou textes.
+                Prévisualiser vos contenus avant de les ouvrir, qu’il s’agisse
+                d’images, de vidéos ou de textes.
               </li>
             </ul>
           </CardContent>

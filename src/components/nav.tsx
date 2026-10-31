@@ -33,7 +33,7 @@ export default function Nav() {
       <NavigationMenuList className="flex-wrap">
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/">Acceuil</Link>
+            <Link href="/">Accueil</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
@@ -46,7 +46,7 @@ export default function Nav() {
                   title={media.title + "s"}
                   href={media.href}
                 >
-                  List des {media.title}
+                  Liste des {media.title.toLowerCase()}s
                 </ListItem>
               ))}
             </ul>
