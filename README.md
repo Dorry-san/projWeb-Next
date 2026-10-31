@@ -25,7 +25,7 @@ Aller dans le lien http://localhost:3000
 # NO-SQL
 Utilisation de postgresql en local :
 
-Lancer un conteneur Docker
+Lancer un conteneur Docker (https://www.prisma.io/dataguide/postgresql/setting-up-a-local-postgresql-database)
 
 ```
 docker run --name postgres -d \
