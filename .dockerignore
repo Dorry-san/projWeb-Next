@@ -1,0 +1,10 @@
+.dockerignore
+.git
+.next
+generated
+node_modules
+.env
+.gitignore
+Dockerfile
+README.md
+next-env.d.ts

@@ -1,0 +1,69 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: projet-web-next
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      REDIS_URL: redis://redis:6379
+    command:
+      - /bin/sh
+      - -c
+      - |
+        postgres_password="$$(tr -d '\r\n' < /run/secrets/postgres_password)"
+        encoded_password="$$(node -e 'process.stdout.write(encodeURIComponent(process.argv[1]))' "$$postgres_password")"
+        export DATABASE_URL="postgresql://postgres:$${encoded_password}@postgres:5432/postgres?schema=public"
+        unset postgres_password encoded_password
+        npx prisma db push --skip-generate --accept-data-loss && exec npm start
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    secrets:
+      - postgres_password
+
+  postgres:
+    image: postgres:18
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    secrets:
+      - postgres_password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:alpine
+    container_name: redis-citation
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+secrets:
+  postgres_password:
+    file: ../postgres-password.txt
+
+volumes:
+  postgres-data:
+  redis_data:
