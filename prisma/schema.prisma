@@ -11,13 +11,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model citation {
-  id        Int      @id @default(autoincrement())
-  text      String
-  author    String
-  CreatedAt DateTime @default(now())
-}
-
 enum MediaType {
   photo
   video

@@ -36,9 +36,14 @@ docker run --name postgres -d \
   postgres:18
 ```
 
-Créer la variable DATABASE_URL : 
+```
+docker run -d --name redis-citation -p 6379:6379 -v redis_data:/data redis:alpine redis-server --appendonly yes
+```
+
+Créer les variables DATABASE_URL et REDIS_URL: 
 ```
 export DATABASE_URL="postgresql://postgres:MDP@127.0.0.1:5432/postgres?schema=public"
+export REDIS_URL=redis://localhost:6379
 ```
 
 Générer prisma
@@ -50,3 +55,4 @@ Appliquer le schema à la bd
 ```
 npx prisma db push
 ```
+
