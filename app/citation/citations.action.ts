@@ -25,7 +25,7 @@ export async function createCitationAction(citation: {
     console.error(error);
     return { error: "Error while creating the citation." };
   }
-  
+
   redirect("/citation");
 }
 
@@ -62,7 +62,7 @@ export async function updateCitationAction(
       error: "Error while updating the citation.",
     };
   }
-  
+
   redirect("/citation");
 }
 
@@ -79,7 +79,7 @@ export async function deleteCitationAction(id: number) {
 export async function getAllCitations() {
   try {
     const keys = await redis.keys("citation:*");
-    
+
     const citationKeys = keys.filter(key => key !== "citation:next_id");
 
     if (citationKeys.length === 0) {
@@ -91,10 +91,10 @@ export async function getAllCitations() {
         const rawData = await redis.get(key);
         const ttlTime = await redis.ttl(key);
         if (!rawData) return null;
-        let citation = JSON.parse(rawData);
+        const citation = JSON.parse(rawData);
         return {
           ...citation,
-          ttl: ttlTime, 
+          ttl: ttlTime,
         };
       })
     );
@@ -112,7 +112,7 @@ export async function getAllCitations() {
 export async function getOneCitation(id: number | string) {
   try {
     const key = `citation:${id}`;
-    
+
     const rawData = await redis.get(key);
 
     if (!rawData) {

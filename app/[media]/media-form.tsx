@@ -36,8 +36,8 @@ export function MediaForm({
       );
       error = json.error;
     } else {
-      let fullUrl = String(FormData.get("url"));
-      let cleanUrl = fullUrl.replace(/\/$/, '');
+      const fullUrl = String(FormData.get("url"));
+      const cleanUrl = fullUrl.replace(/\/$/, "");
 
       const json = await createMediaAction(
         {
