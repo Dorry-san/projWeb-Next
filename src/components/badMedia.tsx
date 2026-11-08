@@ -4,7 +4,7 @@ export default function Err({ media }: { media: string }) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Le media {media} n'est pas pris en charge.</CardTitle>
+        <CardTitle>Le media {media} n&apos;est pas pris en charge.</CardTitle>
       </CardHeader>
     </Card>
   );

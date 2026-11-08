@@ -1,5 +1,4 @@
 import { Card, CardHeader, CardTitle } from "@/src/components/ui/card";
-import prisma from "@/src/lib/prisma";
 import { CitationForm } from "../citation-form";
 import { getOneCitation } from "../citations.action";
 
@@ -19,7 +18,7 @@ export default async function Page(props: {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>La citation {citationId} n'éxiste pas ou a expiré.</CardTitle>
+          <CardTitle>La citation {citationId} n&apos;éxiste pas ou a expiré.</CardTitle>
         </CardHeader>
       </Card>
     );

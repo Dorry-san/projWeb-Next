@@ -26,7 +26,7 @@ export default async function Page({
     return (
       <Card>
         <CardHeader>
-          <CardTitle>La citaion {mediaId} n'éxiste pas.</CardTitle>
+          <CardTitle>La citaion {mediaId} n&apos;éxiste pas.</CardTitle>
         </CardHeader>
       </Card>
     );
