@@ -1,4 +1,4 @@
-export type Citation = {
+export type citation = {
   id: number;
   text: string;
   author: string;

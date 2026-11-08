@@ -12,9 +12,9 @@ import {
 } from "@/src/components/ui/card";
 import { createCitationAction, updateCitationAction } from "./citations.action";
 import { useFormStatus } from "react-dom";
-import { citation } from "@/src/types/citation";
+import { Citation } from "@/src/types/citation";
 
-export function CitationForm(props: { citation?: citation }) {
+export function CitationForm(props: { citation?: Citation }) {
   const onSubmit = async (FormData: FormData) => {
     let error: null | string = null;
     if (props.citation) {
