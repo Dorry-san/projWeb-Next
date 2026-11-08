@@ -9,6 +9,8 @@ import Link from "next/link";
 import { DeleteCitationButton } from "./delete-citation-button";
 import { getAllCitations } from "./citations.action";
 
+export const dynamic = "force-dynamic";
+
 function formatTTL(sec: number) {
   if (sec < 60) {
     return `Expire dans ${sec}s`;
