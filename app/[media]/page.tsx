@@ -10,6 +10,7 @@ import Link from "next/link";
 import { DeleteMediaButton } from "./delete-mediai-button";
 import { MediaType } from "@/generated/prisma";
 import Err from "@/src/components/badMedia";
+import Image from "next/image";
 
 export default async function Page({ params }: { params: { media: string } }) {
   const media = (await params).media;
@@ -51,10 +52,12 @@ export default async function Page({ params }: { params: { media: string } }) {
             </CardHeader>
             <CardContent>
               {(theMedia.type == "photo" || theMedia.type == "gif") && (
-                <img
+                <Image
                   className="mx-auto max-w-150 h-auto rounded-lg"
                   src={`/api/media?file=${theMedia.url}`}
                   alt="img media"
+                  width={800}
+                  height={450}
                 />
               )}
               {theMedia.type == "video" && (
