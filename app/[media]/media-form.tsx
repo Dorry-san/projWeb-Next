@@ -2,7 +2,6 @@
 
 import { Label } from "@/src/components/ui/label";
 import { Input } from "@/src/components/ui/input";
-//import Form from "next/form";
 import { Button } from "@/src/components/ui/button";
 import {
   Card,
@@ -36,15 +35,12 @@ export function MediaForm({
       );
       error = json.error;
     } else {
-      const fullUrl = String(FormData.get("url"));
-      const cleanUrl = fullUrl.replace(/\/$/, "");
-
       const json = await createMediaAction(
         {
           type: mediaStr as MediaType,
           title: String(FormData.get("title")),
           description: String(FormData.get("description")),
-          url: cleanUrl + "/" + file.name,
+          file: file,
         },
         mediaStr,
       );
@@ -89,12 +85,6 @@ export function MediaForm({
             <Label>
               Media
               <Input type="file" name="media" required />
-            </Label>
-          )}
-          {!media && (
-            <Label>
-              Chemin du media
-              <Input name="url" placeholder="/home/user/Images/" required />
             </Label>
           )}
           <SubmitButton />
