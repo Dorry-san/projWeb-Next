@@ -19,7 +19,7 @@ export async function createMediaAction(
   },
   theMedia: string,
 ) {
-  const allowedExtensions = [".png", ".jpg", ".jpeg", ".gif", ".webp", ".mp4"];
+  const allowedExtensions = [".png", ".jpg", ".jpeg", ".gif", ".webp", ".mp4", "webm"];
   const extension = path.extname(media.file.name).toLowerCase();
 
   if (!(media.file instanceof File) || media.file.size === 0) {

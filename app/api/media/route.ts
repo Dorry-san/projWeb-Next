@@ -30,7 +30,9 @@ export async function GET(request: NextRequest) {
               ? "image/webp"
               : ext === ".mp4"
                 ? "video/mp4"
-                : "application/octet-stream"
+                : ext === ".webm"
+                  ? "video/webm" 
+                  : "application/octet-stream"
 
     return new NextResponse(uint8Array, {
       headers: {
