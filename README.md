@@ -1,58 +1,18 @@
 # Archivea
 
+## How to run
+
+Dans un premier temps, il faut créer un fichier appeler "postgres-password.txt" dans le dossier parent du repo git (le repo et le fichier txt doivent être au même niveau dans l'arborescence) et définir un mot de passe à votre convenance.
+
+Une fois cela fait, lancer la commande suivante : 
+```
+docker compose up -d --build
+```
+
+Le site sera ensuite disponible sur `localhost:3000`.  
+Vous pouvez également retrouver une version déployer à l'url suivante : https://no-sql.lucaspivet.fr
+
+
 ## Dépendance
-- node.js
-
-## Instalation
-Après avoir unzip le projet, installer les dépendance
-```bash
-npm install
-```
-Générer prisma
-```bash
-npx prisma generate
-```
-
-## Lancement
-Lancer le serveur
-```bash
-npm run dev
-```
-Aller dans le lien http://localhost:3000
-
-
-
-# NO-SQL
-Utilisation de postgresql en local :
-
-Lancer un conteneur Docker (https://www.prisma.io/dataguide/postgresql/setting-up-a-local-postgresql-database)
-
-```
-docker run --name postgres -d \
-  -p 127.0.0.1:5432:5432 \
-  -v postgres-data:/var/lib/postgresql \
-  -v "$PWD/postgres-password.txt:/run/secrets/postgres-password:ro" \
-  -e POSTGRES_PASSWORD_FILE=/run/secrets/postgres-password \
-  postgres:18
-```
-
-```
-docker run -d --name redis-citation -p 6379:6379 -v redis_data:/data redis:alpine redis-server --appendonly yes
-```
-
-Créer les variables DATABASE_URL et REDIS_URL: 
-```
-export DATABASE_URL="postgresql://postgres:MDP@127.0.0.1:5432/postgres?schema=public"
-export REDIS_URL=redis://localhost:6379
-```
-
-Générer prisma
-```bash
-npx prisma generate
-```
-
-Appliquer le schema à la bd
-```
-npx prisma db push
-```
+- Docker
 
