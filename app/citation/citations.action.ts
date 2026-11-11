@@ -54,7 +54,7 @@ export async function updateCitationAction(
       text: citation.text,
     };
 
-    await redis.set(key, JSON.stringify(updatedCitation));
+    await redis.set(key, JSON.stringify(updatedCitation), "EX", DEFAULT_TTL);
 
   } catch (error) {
     console.error(error);

@@ -68,7 +68,7 @@ const SubmitButton = () => {
 
   return (
     <Button disabled={pending} type="submit">
-      {pending ? "Loading..." : "Subbit"}
+      {pending ? "Chargement..." : "Envoyer"}
     </Button>
   );
 };
