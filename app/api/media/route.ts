@@ -7,9 +7,14 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const filename = String(searchParams.get("file"));
     const decodeFile = decodeURIComponent(filename);
-    console.log(decodeFile);
 
-    const imageBuffer = await readFile(decodeFile);
+    const DATA_DIRECTORY = "/data";
+    const filePath = path.resolve(DATA_DIRECTORY, decodeFile);
+    if (!filePath.startsWith(DATA_DIRECTORY + path.sep)) {
+      return NextResponse.json({ error: "Invalid path" }, { status: 400 });
+    }
+
+    const imageBuffer = await readFile(filePath);
 
     const uint8Array = new Uint8Array(imageBuffer);
 
@@ -23,7 +28,9 @@ export async function GET(request: NextRequest) {
             ? "image/gif"
             : ext === ".webp"
               ? "image/webp"
-              : "application/octet-stream";
+              : ext === ".mp4"
+                ? "video/mp4"
+                : "application/octet-stream"
 
     return new NextResponse(uint8Array, {
       headers: {
